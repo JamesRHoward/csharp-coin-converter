@@ -24,6 +24,9 @@ namespace Coin
       changeDictionary["dimes"] = Convert.ToInt32(Math.Ceiling(runningRemainingTotal/0.10));
       runningRemainingTotal = runningRemainingTotal % 0.10;
       this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+      changeDictionary["nickels"] = Convert.ToInt32(Math.Ceiling(runningRemainingTotal/0.05));
+      runningRemainingTotal = runningRemainingTotal % 0.05;
+      this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
       return changeDictionary;
     }
     public void PrintCoinAmounts(Dictionary<string, int> currentCoins, double runningTotal)
