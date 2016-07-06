@@ -41,6 +41,18 @@ namespace Coin
     //   Assert.Equal(testDictionary, testCalculateChange.ReturnCoins(0.95));
     // }
 
+    // [Fact]
+    // public void CalculateChange_ForRemainingAmountDivisibleBy5Cents_Nickel()
+    // {
+    //   CalculateChange testCalculateChange = new CalculateChange();
+    //   Dictionary<string, int> testDictionary = new Dictionary<string, int>();
+    //   testDictionary.Add("quarters", 2);
+    //   testDictionary.Add("dimes", 0);
+    //   testDictionary.Add("nickels", 1);
+    //   testDictionary.Add("pennies", 0);
+    //   Assert.Equal(testDictionary, testCalculateChange.ReturnCoins(0.55));
+    // }
+
     [Fact]
     public void CalculateChange_ForRemainingAmountDivisibleBy5Cents_Nickel()
     {
@@ -49,8 +61,8 @@ namespace Coin
       testDictionary.Add("quarters", 2);
       testDictionary.Add("dimes", 0);
       testDictionary.Add("nickels", 1);
-      testDictionary.Add("pennies", 0);
-      Assert.Equal(testDictionary, testCalculateChange.ReturnCoins(0.55));
+      testDictionary.Add("pennies", 4);
+      Assert.Equal(testDictionary, testCalculateChange.ReturnCoins(0.59));
     }
 
   }

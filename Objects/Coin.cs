@@ -27,6 +27,9 @@ namespace Coin
         changeDictionary["nickels"] = runningRemainingTotal/5;
         runningRemainingTotal = runningRemainingTotal % 5;
         this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+        changeDictionary["pennies"] = runningRemainingTotal/1;
+        runningRemainingTotal = runningRemainingTotal % 1;
+        this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
         return changeDictionary;
         }
     }
