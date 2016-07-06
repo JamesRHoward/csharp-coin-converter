@@ -13,21 +13,22 @@ namespace Coin
       changeDictionary.Add("dimes", 0);
       changeDictionary.Add("nickels", 0);
       changeDictionary.Add("pennies", 0);
-      double runningRemainingTotal = changeTotal;
-      this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+      int runningRemainingTotal = Convert.ToInt32(changeTotal * 100);
       if (changeTotal % 1 == 0) {
         return changeDictionary;
       }
-      changeDictionary["quarters"] = Convert.ToInt32(Math.Floor(runningRemainingTotal/0.25));
-      runningRemainingTotal = runningRemainingTotal % 0.25;
-      this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
-      changeDictionary["dimes"] = Convert.ToInt32(Math.Ceiling(runningRemainingTotal/0.10));
-      runningRemainingTotal = runningRemainingTotal % 0.10;
-      this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
-      changeDictionary["nickels"] = Convert.ToInt32(Math.Ceiling(runningRemainingTotal/0.05));
-      runningRemainingTotal = runningRemainingTotal % 0.05;
-      this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
-      return changeDictionary;
+      else {
+        changeDictionary["quarters"] = runningRemainingTotal/25;
+        runningRemainingTotal = runningRemainingTotal % 25;
+        this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+        changeDictionary["dimes"] = runningRemainingTotal/10;
+        runningRemainingTotal = runningRemainingTotal % 10;
+        this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+        changeDictionary["nickels"] = runningRemainingTotal/5;
+        runningRemainingTotal = runningRemainingTotal % 5;
+        this.PrintCoinAmounts(changeDictionary, runningRemainingTotal);
+        return changeDictionary;
+        }
     }
     public void PrintCoinAmounts(Dictionary<string, int> currentCoins, double runningTotal)
     {
